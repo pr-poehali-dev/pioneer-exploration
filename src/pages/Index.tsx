@@ -3,6 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
+import { Badge } from '@/components/ui/badge';
 
 type PageType = 'home' | 'tornado' | 'hurricane' | 'wildfire' | 'flood' | 'earthquake' | 'statistics' | 'research' | 'about' | 'contact';
 
@@ -31,6 +33,19 @@ const economicImpact = [
   { disaster: 'Пожары', damage: 52.1 },
   { disaster: 'Торнадо', damage: 28.7 },
 ];
+
+const recentDisasters = [
+  { name: 'Землетрясение в Турции', coordinates: [37.0, 37.0], type: 'earthquake', date: 'Февраль 2023', magnitude: '7.8', color: '#403E43' },
+  { name: 'Ураган Идалия', coordinates: [-83.0, 30.0], type: 'hurricane', date: 'Август 2023', magnitude: 'Кат. 3', color: '#0EA5E9' },
+  { name: 'Пожары в Канаде', coordinates: [-120.0, 55.0], type: 'wildfire', date: 'Июль 2023', magnitude: '15M га', color: '#F97316' },
+  { name: 'Наводнение в Ливии', coordinates: [22.0, 32.8], type: 'flood', date: 'Сентябрь 2023', magnitude: 'Шторм Даниэль', color: '#8A898C' },
+  { name: 'Землетрясение в Марокко', coordinates: [-8.0, 31.0], type: 'earthquake', date: 'Сентябрь 2023', magnitude: '6.8', color: '#403E43' },
+  { name: 'Торнадо в Миссисипи', coordinates: [-90.0, 33.0], type: 'tornado', date: 'Март 2023', magnitude: 'EF-4', color: '#1EAEDB' },
+  { name: 'Пожары в Греции', coordinates: [23.0, 38.5], type: 'wildfire', date: 'Июль 2023', magnitude: '175K га', color: '#F97316' },
+  { name: 'Наводнение в Пакистане', coordinates: [69.0, 30.0], type: 'flood', date: 'Август 2022', magnitude: '33M пострадавших', color: '#8A898C' },
+];
+
+const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
 function Index() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
@@ -77,6 +92,63 @@ function Index() {
             </CardContent>
           </Card>
         ))}
+      </section>
+
+      <section className="px-4 py-8">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-2xl">Карта недавних бедствий</CardTitle>
+            <CardDescription>Крупные стихийные бедствия 2022-2023 годов по всему миру</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="bg-muted/30 rounded-lg p-4">
+              <ComposableMap
+                projectionConfig={{
+                  scale: 147,
+                }}
+                height={400}
+              >
+                <Geographies geography={geoUrl}>
+                  {({ geographies }) =>
+                    geographies.map((geo) => (
+                      <Geography
+                        key={geo.rsmKey}
+                        geography={geo}
+                        fill="#E5E7EB"
+                        stroke="#FFFFFF"
+                        strokeWidth={0.5}
+                        style={{
+                          default: { outline: 'none' },
+                          hover: { fill: '#D1D5DB', outline: 'none' },
+                          pressed: { outline: 'none' },
+                        }}
+                      />
+                    ))
+                  }
+                </Geographies>
+                {recentDisasters.map((disaster, idx) => (
+                  <Marker key={idx} coordinates={disaster.coordinates}>
+                    <circle r={6} fill={disaster.color} stroke="#fff" strokeWidth={2} className="animate-pulse" />
+                  </Marker>
+                ))}
+              </ComposableMap>
+            </div>
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
+              {recentDisasters.map((disaster, idx) => (
+                <div key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
+                  <div className="w-3 h-3 rounded-full mt-1.5" style={{ backgroundColor: disaster.color }} />
+                  <div className="flex-1">
+                    <p className="font-semibold text-sm">{disaster.name}</p>
+                    <div className="flex gap-2 mt-1 flex-wrap">
+                      <Badge variant="outline" className="text-xs">{disaster.date}</Badge>
+                      <Badge variant="secondary" className="text-xs">{disaster.magnitude}</Badge>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
       </section>
 
       <section className="px-4 py-8">

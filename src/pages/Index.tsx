@@ -49,6 +49,15 @@ const geoUrl = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
 function Index() {
   const [currentPage, setCurrentPage] = useState<PageType>('home');
+  const [activeFilters, setActiveFilters] = useState<string[]>(['earthquake', 'hurricane', 'wildfire', 'flood', 'tornado']);
+
+  const toggleFilter = (type: string) => {
+    setActiveFilters(prev => 
+      prev.includes(type) ? prev.filter(t => t !== type) : [...prev, type]
+    );
+  };
+
+  const filteredDisasters = recentDisasters.filter(d => activeFilters.includes(d.type));
 
   const navigation = [
     { id: 'home', label: 'Главная', icon: 'Home' },
@@ -101,6 +110,27 @@ function Index() {
             <CardDescription>Крупные стихийные бедствия 2022-2023 годов по всему миру</CardDescription>
           </CardHeader>
           <CardContent>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {[
+                { type: 'earthquake', label: 'Землетрясения', icon: 'Zap', color: '#403E43' },
+                { type: 'hurricane', label: 'Ураганы', icon: 'CloudRain', color: '#0EA5E9' },
+                { type: 'wildfire', label: 'Пожары', icon: 'Flame', color: '#F97316' },
+                { type: 'flood', label: 'Наводнения', icon: 'Waves', color: '#8A898C' },
+                { type: 'tornado', label: 'Торнадо', icon: 'Wind', color: '#1EAEDB' },
+              ].map((filter) => (
+                <Button
+                  key={filter.type}
+                  variant={activeFilters.includes(filter.type) ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => toggleFilter(filter.type)}
+                  className="gap-2"
+                  style={activeFilters.includes(filter.type) ? { backgroundColor: filter.color, borderColor: filter.color } : {}}
+                >
+                  <Icon name={filter.icon as any} className="w-4 h-4" />
+                  {filter.label}
+                </Button>
+              ))}
+            </div>
             <div className="bg-muted/30 rounded-lg p-4">
               <ComposableMap
                 projectionConfig={{
@@ -126,7 +156,7 @@ function Index() {
                     ))
                   }
                 </Geographies>
-                {recentDisasters.map((disaster, idx) => (
+                {filteredDisasters.map((disaster, idx) => (
                   <Marker key={idx} coordinates={disaster.coordinates}>
                     <circle r={6} fill={disaster.color} stroke="#fff" strokeWidth={2} className="animate-pulse" />
                   </Marker>
@@ -134,7 +164,7 @@ function Index() {
               </ComposableMap>
             </div>
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
-              {recentDisasters.map((disaster, idx) => (
+              {filteredDisasters.map((disaster, idx) => (
                 <div key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors">
                   <div className="w-3 h-3 rounded-full mt-1.5" style={{ backgroundColor: disaster.color }} />
                   <div className="flex-1">

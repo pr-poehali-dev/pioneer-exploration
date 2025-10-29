@@ -298,6 +298,169 @@ function Index() {
         </Card>
       </section>
 
+      <section className="px-4 py-8">
+        <Card className="bg-gradient-to-br from-destructive/5 to-accent/5 border-destructive/20">
+          <CardHeader>
+            <CardTitle className="text-2xl flex items-center gap-2">
+              <Icon name="Shield" className="w-6 h-6 text-destructive" />
+              Рекомендации по безопасности
+            </CardTitle>
+            <CardDescription>Как действовать при различных типах стихийных бедствий</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <Card className="border-primary/30">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-2">
+                    <Icon name="Zap" className="w-5 h-5 text-primary" />
+                    <CardTitle className="text-base">Землетрясение</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                  <div className="flex gap-2">
+                    <Icon name="AlertTriangle" className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                    <p><strong>Во время:</strong> Укройтесь под прочной мебелью, держитесь подальше от окон</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Icon name="CheckCircle2" className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <p><strong>После:</strong> Покиньте здание, проверьте на утечки газа и воды</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Icon name="XCircle" className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                    <p><strong>Нельзя:</strong> Пользоваться лифтом, зажигать огонь</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-primary/30">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-2">
+                    <Icon name="CloudRain" className="w-5 h-5 text-primary" />
+                    <CardTitle className="text-base">Ураган</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                  <div className="flex gap-2">
+                    <Icon name="AlertTriangle" className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                    <p><strong>Подготовка:</strong> Укрепите окна, запаситесь водой и едой на 3 дня</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Icon name="CheckCircle2" className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <p><strong>Во время:</strong> Оставайтесь внутри, в комнате без окон</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Icon name="XCircle" className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                    <p><strong>Нельзя:</strong> Выходить во время "глаза бури"</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-accent/50">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-2">
+                    <Icon name="Flame" className="w-5 h-5 text-accent" />
+                    <CardTitle className="text-base">Лесной пожар</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                  <div className="flex gap-2">
+                    <Icon name="AlertTriangle" className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                    <p><strong>При угрозе:</strong> Эвакуируйтесь перпендикулярно направлению ветра</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Icon name="CheckCircle2" className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <p><strong>Защита:</strong> Закройте окна, двери, намочите ткань для дыхания</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Icon name="XCircle" className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                    <p><strong>Нельзя:</strong> Возвращаться пока не объявят безопасность</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-secondary/50">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-2">
+                    <Icon name="Waves" className="w-5 h-5 text-secondary" />
+                    <CardTitle className="text-base">Наводнение</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                  <div className="flex gap-2">
+                    <Icon name="AlertTriangle" className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                    <p><strong>При угрозе:</strong> Поднимитесь на верхние этажи, возьмите документы</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Icon name="CheckCircle2" className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <p><strong>В воде:</strong> Держитесь за плавающие предметы</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Icon name="XCircle" className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                    <p><strong>Нельзя:</strong> Пересекать потоки воды, пить воду из источников</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-primary/30">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-2">
+                    <Icon name="Wind" className="w-5 h-5 text-primary" />
+                    <CardTitle className="text-base">Торнадо</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                  <div className="flex gap-2">
+                    <Icon name="AlertTriangle" className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                    <p><strong>При угрозе:</strong> Спуститесь в подвал или центр здания</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Icon name="CheckCircle2" className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <p><strong>Защита:</strong> Закройте голову, лягте в углубление местности</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Icon name="XCircle" className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                    <p><strong>Нельзя:</strong> Укрываться под мостами, оставаться в автомобиле</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-destructive/30">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-2">
+                    <Icon name="Package" className="w-5 h-5 text-destructive" />
+                    <CardTitle className="text-base">Тревожный чемодан</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                  <div className="flex gap-2">
+                    <Icon name="FileText" className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <p>Документы, деньги, флешка с копиями</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Icon name="Heart" className="w-4 h-4 text-destructive mt-0.5 flex-shrink-0" />
+                    <p>Аптечка, лекарства, средства гигиены</p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Icon name="Smartphone" className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <p>Фонарик, радио, зарядное устройство, батарейки</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="mt-6 p-4 bg-destructive/10 rounded-lg border border-destructive/30">
+              <p className="text-sm flex items-start gap-2">
+                <Icon name="Phone" className="w-5 h-5 text-destructive mt-0.5 flex-shrink-0" />
+                <span>
+                  <strong>Экстренные службы:</strong> 112 — единый номер экстренных служб. 
+                  Следите за предупреждениями МЧС через мобильное приложение и СМИ.
+                </span>
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
       <section className="grid md:grid-cols-2 gap-6 px-4 pb-8">
         <Card>
           <CardHeader>

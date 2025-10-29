@@ -104,6 +104,99 @@ function Index() {
       </section>
 
       <section className="px-4 py-8">
+        <Card className="bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
+          <CardHeader>
+            <CardTitle className="text-2xl flex items-center gap-2">
+              <Icon name="BookOpen" className="w-6 h-6 text-primary" />
+              Что такое стихийные бедствия?
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-base leading-relaxed">
+              <strong>Стихийные бедствия</strong> — это природные явления катастрофического характера, 
+              которые приводят к нарушению нормальной жизнедеятельности людей, разрушению материальных ценностей 
+              и могут вызывать человеческие жертвы.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-6 mt-6">
+              <div>
+                <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                  <Icon name="Layers" className="w-5 h-5 text-primary" />
+                  Основные причины возникновения
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex gap-3 items-start">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium">Геологические процессы</p>
+                      <p className="text-sm text-muted-foreground">Движение тектонических плит, вулканическая активность, смещение горных пород</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-3 items-start">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium">Атмосферные явления</p>
+                      <p className="text-sm text-muted-foreground">Циркуляция воздушных масс, перепады температур, влажности и давления</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-3 items-start">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium">Гидрологические факторы</p>
+                      <p className="text-sm text-muted-foreground">Обильные осадки, таяние снега, повышение уровня водоемов</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-3 items-start">
+                    <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium">Антропогенное влияние</p>
+                      <p className="text-sm text-muted-foreground">Изменение климата, вырубка лесов, урбанизация территорий</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
+                  <Icon name="Target" className="w-5 h-5 text-primary" />
+                  Классификация по происхождению
+                </h3>
+                <div className="space-y-2">
+                  <div className="p-3 bg-background rounded-lg border">
+                    <p className="font-medium text-sm">🌍 Геофизические</p>
+                    <p className="text-xs text-muted-foreground mt-1">Землетрясения, извержения вулканов, оползни</p>
+                  </div>
+                  <div className="p-3 bg-background rounded-lg border">
+                    <p className="font-medium text-sm">🌪️ Метеорологические</p>
+                    <p className="text-xs text-muted-foreground mt-1">Ураганы, торнадо, засухи, метели</p>
+                  </div>
+                  <div className="p-3 bg-background rounded-lg border">
+                    <p className="font-medium text-sm">💧 Гидрологические</p>
+                    <p className="text-xs text-muted-foreground mt-1">Наводнения, цунами, сели</p>
+                  </div>
+                  <div className="p-3 bg-background rounded-lg border">
+                    <p className="font-medium text-sm">🔥 Природные пожары</p>
+                    <p className="text-xs text-muted-foreground mt-1">Лесные и степные пожары, торфяные возгорания</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
+              <p className="text-sm flex items-start gap-2">
+                <Icon name="Info" className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <span>
+                  <strong>Научный факт:</strong> По данным ООН, за последние 20 лет количество стихийных бедствий 
+                  увеличилось на 74%. Основная причина — изменение климата, вызванное деятельностью человека, 
+                  что приводит к повышению частоты экстремальных погодных явлений.
+                </span>
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      <section className="px-4 py-8">
         <Card>
           <CardHeader>
             <CardTitle className="text-2xl">Карта недавних бедствий</CardTitle>
